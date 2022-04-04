@@ -172,4 +172,9 @@
         android:title="WaterReflection"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/filter33"
+        android:title="Sobel"
+        app:showAsAction="never" />
+
 </menu>
