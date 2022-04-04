@@ -172,4 +172,8 @@
         android:title="WaterReflection"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/filter34"
+        android:title="Floyd-Steinberg dithering"
+        app:showAsAction="never" />
 </menu>
