@@ -62,6 +62,7 @@ import cn.nekocode.camerafilter.filter.PixelizeFilter;
 import cn.nekocode.camerafilter.filter.PolygonizationFilter;
 import cn.nekocode.camerafilter.filter.RefractionFilter;
 import cn.nekocode.camerafilter.filter.ReliefFilter;
+import cn.nekocode.camerafilter.filter.TwoPassGaussianFilter;
 import cn.nekocode.camerafilter.filter.SobelFilter;
 import cn.nekocode.camerafilter.filter.SwirlFilter;
 import cn.nekocode.camerafilter.filter.TileMosaicFilter;
@@ -189,6 +190,7 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
         cameraFilterMap.append(R.id.filter31, new CartoonFilter(context));
         cameraFilterMap.append(R.id.filter32, new WaterReflectionFilter(context));
         cameraFilterMap.append(R.id.filter33, new SobelFilter(context));
+        cameraFilterMap.append(R.id.filter36, new TwoPassGaussianFilter(context));
         setSelectedFilter(selectedFilterId);
 
         // Create texture for camera preview

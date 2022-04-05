@@ -177,4 +177,9 @@
         android:title="Sobel"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/filter36"
+        android:title="TwoPassGaussian"
+        app:showAsAction="never" />
+
 </menu>
