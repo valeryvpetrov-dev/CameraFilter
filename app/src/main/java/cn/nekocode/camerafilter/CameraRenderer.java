@@ -46,6 +46,7 @@ import cn.nekocode.camerafilter.filter.CrackedFilter;
 import cn.nekocode.camerafilter.filter.CrosshatchFilter;
 import cn.nekocode.camerafilter.filter.EMInterferenceFilter;
 import cn.nekocode.camerafilter.filter.EdgeDetectionFilter;
+import cn.nekocode.camerafilter.filter.FloydSteinbergDithering;
 import cn.nekocode.camerafilter.filter.GrayFilter;
 import cn.nekocode.camerafilter.filter.HexagonMosaicFilter;
 import cn.nekocode.camerafilter.filter.JFAVoronoiFilter;
@@ -60,6 +61,7 @@ import cn.nekocode.camerafilter.filter.NostalgiaFilter;
 import cn.nekocode.camerafilter.filter.OriginalFilter;
 import cn.nekocode.camerafilter.filter.PixelizeFilter;
 import cn.nekocode.camerafilter.filter.PolygonizationFilter;
+import cn.nekocode.camerafilter.filter.RainDropsFilter;
 import cn.nekocode.camerafilter.filter.RefractionFilter;
 import cn.nekocode.camerafilter.filter.ReliefFilter;
 import cn.nekocode.camerafilter.filter.SobelFilter;
@@ -189,6 +191,8 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
         cameraFilterMap.append(R.id.filter31, new CartoonFilter(context));
         cameraFilterMap.append(R.id.filter32, new WaterReflectionFilter(context));
         cameraFilterMap.append(R.id.filter33, new SobelFilter(context));
+        cameraFilterMap.append(R.id.filter34, new FloydSteinbergDithering(context));
+        cameraFilterMap.append(R.id.filter35, new RainDropsFilter(context));
         setSelectedFilter(selectedFilterId);
 
         // Create texture for camera preview

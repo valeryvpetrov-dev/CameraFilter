@@ -177,4 +177,13 @@
         android:title="Sobel"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/filter34"
+        android:title="Floyd-Steinberg dithering"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/filter35"
+        android:title="Rain drops"
+        app:showAsAction="never" />
 </menu>
