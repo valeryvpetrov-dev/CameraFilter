@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             "Mirror", "Triple", "Cartoon", "WaterReflection",
             "Sobel",
             "Floyd-Steinberg dithering",
-            "Rain Drops"
+            "Rain Drops",
+            "TwoPassGaussian"
     };
 
     Integer[] FILTER_RES_IDS = {R.id.filter0, R.id.filter1, R.id.filter2, R.id.filter3, R.id.filter4,
@@ -76,7 +77,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             R.id.filter29, R.id.filter30, R.id.filter31, R.id.filter32,
             R.id.filter33,
             R.id.filter34,
-            R.id.filter35
+            R.id.filter35,
+            R.id.filter36
     };
 
     ArrayList<Integer> mFilterArray = new ArrayList<>(Arrays.asList(FILTER_RES_IDS));
