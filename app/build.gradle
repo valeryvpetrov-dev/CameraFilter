@@ -1,13 +1,14 @@
 apply plugin: "com.android.application"
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 32
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "cn.nekocode.camerafilter"
         minSdkVersion 15
-        targetSdkVersion 27
+        targetSdkVersion 32
         versionCode 212
         versionName "2.4"
     }
@@ -21,5 +22,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "com.android.support:appcompat-v7:27.1.1"
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+
+repositories {
+    mavenCentral()
 }
