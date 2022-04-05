@@ -47,7 +47,6 @@ import cn.nekocode.camerafilter.filter.CrosshatchFilter;
 import cn.nekocode.camerafilter.filter.EMInterferenceFilter;
 import cn.nekocode.camerafilter.filter.EdgeDetectionFilter;
 import cn.nekocode.camerafilter.filter.FloydSteinbergDithering;
-import cn.nekocode.camerafilter.filter.ZxSpectrumFilter;
 import cn.nekocode.camerafilter.filter.GrayFilter;
 import cn.nekocode.camerafilter.filter.HexagonMosaicFilter;
 import cn.nekocode.camerafilter.filter.JFAVoronoiFilter;
@@ -65,13 +64,14 @@ import cn.nekocode.camerafilter.filter.PolygonizationFilter;
 import cn.nekocode.camerafilter.filter.RainDropsFilter;
 import cn.nekocode.camerafilter.filter.RefractionFilter;
 import cn.nekocode.camerafilter.filter.ReliefFilter;
-import cn.nekocode.camerafilter.filter.TwoPassGaussianFilter;
 import cn.nekocode.camerafilter.filter.SobelFilter;
 import cn.nekocode.camerafilter.filter.SwirlFilter;
 import cn.nekocode.camerafilter.filter.TileMosaicFilter;
 import cn.nekocode.camerafilter.filter.TrianglesMosaicFilter;
 import cn.nekocode.camerafilter.filter.TripleFilter;
+import cn.nekocode.camerafilter.filter.TwoPassGaussianFilter;
 import cn.nekocode.camerafilter.filter.WaterReflectionFilter;
+import cn.nekocode.camerafilter.filter.ZxSpectrumFilter;
 
 /**
  * @author nekocode (nekocode.cn@gmail.com)
@@ -122,7 +122,7 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
         if (renderThread != null && renderThread.isAlive()) {
             renderThread.interrupt();
         }
-        CameraFilter.release();
+        CameraFilter.Companion.release();
 
         return true;
     }
