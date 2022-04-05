@@ -191,4 +191,9 @@
         android:title="TwoPassGaussian"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/filter37"
+        android:title="ZxSpectrum"
+        app:showAsAction="never" />
+
 </menu>
