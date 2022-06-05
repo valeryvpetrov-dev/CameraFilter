@@ -223,5 +223,11 @@ abstract class CameraFilter(context: Context) {
             iChannelResolutionLocation,
             _iChannelResolutions.size, FloatBuffer.wrap(_iChannelResolutions)
         )
+        val brightnessLocation = GLES20.glGetUniformLocation(program, "brightness")
+        val contrastLocation = GLES20.glGetUniformLocation(program, "contrast")
+        val saturationLocation = GLES20.glGetUniformLocation(program, "saturation")
+        GLES20.glUniform1f(brightnessLocation, 0.15f)
+        GLES20.glUniform1f(contrastLocation, 1.2f)
+        GLES20.glUniform1f(saturationLocation, 1.5f)
     }
 }

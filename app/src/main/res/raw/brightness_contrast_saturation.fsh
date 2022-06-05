@@ -4,6 +4,10 @@ uniform vec3                iResolution;
 uniform sampler2D           iChannel0;
 varying vec2                texCoord;
 
+uniform float               brightness;
+uniform float               contrast;
+uniform float               saturation;
+
 mat4 brightnessMatrix(float brightness)
 {
     return mat4(1, 0, 0, 0,
@@ -44,12 +48,7 @@ mat4 saturationMatrix(float saturation)
     0, 0, 0, 1);
 }
 
-const float brightness = 0.15;
-const float contrast = 1.2;
-const float saturation = 1.5;
-
-void mainImage(out vec4 fragColor, in vec2 fragCoord)
-{
+void mainImage(out vec4 fragColor, in vec2 fragCoord, in float brightness, in float contrast, in float saturation) {
     vec4 color = texture2D(iChannel0, fragCoord/iResolution.xy);
 
     fragColor = brightnessMatrix(brightness) *
@@ -59,5 +58,5 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 }
 
 void main() {
-    mainImage(gl_FragColor, texCoord*iResolution.xy);
+    mainImage(gl_FragColor, texCoord*iResolution.xy, brightness, contrast, saturation);
 }
