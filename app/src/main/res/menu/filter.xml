@@ -205,4 +205,9 @@
         android:id="@+id/filter39"
         android:title="Local Contrast Enhancement HDR"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/filter40"
+        android:title="Long Exposure"
+        app:showAsAction="never" />
 </menu>

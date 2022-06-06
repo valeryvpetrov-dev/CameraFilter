@@ -55,6 +55,7 @@ import cn.nekocode.camerafilter.filter.HexagonMosaicFilter;
 import cn.nekocode.camerafilter.filter.JFAVoronoiFilter;
 import cn.nekocode.camerafilter.filter.LegofiedFilter;
 import cn.nekocode.camerafilter.filter.LichtensteinEsqueFilter;
+import cn.nekocode.camerafilter.filter.LongExposure;
 import cn.nekocode.camerafilter.filter.MappingFilter;
 import cn.nekocode.camerafilter.filter.MirrorFilter;
 import cn.nekocode.camerafilter.filter.MoneyFilter;
@@ -208,6 +209,7 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
         cameraFilterMap.append(R.id.filter37, new ZxSpectrumFilter(context));
         cameraFilterMap.append(R.id.filter38, new BrightnessContrastSaturationFilter(context));
         cameraFilterMap.append(R.id.filter39, new EdgesWithBilateralFilters(context));
+        cameraFilterMap.append(R.id.filter40, new LongExposure(context));
         setSelectedFilter(selectedFilterId);
 
         // Create texture for camera preview
