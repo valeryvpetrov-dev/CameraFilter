@@ -21,8 +21,14 @@ import cn.nekocode.camerafilter.MyGLUtils.buildProgram
 import cn.nekocode.camerafilter.R
 
 class BrightnessContrastSaturationFilter(context: Context) : CameraFilter(context) {
-    private val program: Int =
-        buildProgram(context, R.raw.vertext, R.raw.brightness_contrast_saturation)
+
+    var brightness: Float = 0F
+    var contrast: Float = 0F
+    var saturation: Float = 0F
+
+    private val program: Int = buildProgram(
+        context, R.raw.vertext, R.raw.brightness_contrast_saturation
+    )
 
     override fun onDraw(cameraTexId: Int, canvasWidth: Int, canvasHeight: Int) {
         setupShaderInputs(
@@ -30,7 +36,16 @@ class BrightnessContrastSaturationFilter(context: Context) : CameraFilter(contex
             intArrayOf(canvasWidth, canvasHeight),
             intArrayOf(cameraTexId),
             arrayOf()
-        )
+        ) { program ->
+            onParamChanges(program, "brightness", brightness)
+            onParamChanges(program, "contrast", contrast)
+            onParamChanges(program, "saturation", saturation)
+        }
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4)
+    }
+
+    private fun onParamChanges(program: Int, key: String, value: Float) {
+        val keyLocation = GLES20.glGetUniformLocation(program, key)
+        GLES20.glUniform1f(keyLocation, value)
     }
 }
