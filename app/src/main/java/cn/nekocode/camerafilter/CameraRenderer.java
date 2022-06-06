@@ -25,6 +25,8 @@ import android.util.Pair;
 import android.util.SparseArray;
 import android.view.TextureView;
 
+import androidx.annotation.Nullable;
+
 import java.io.IOException;
 
 import javax.microedition.khronos.egl.EGL10;
@@ -146,6 +148,11 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
 
         // Start rendering
         renderThread.start();
+    }
+
+    @Nullable
+    public CameraFilter getSelectedFilter() {
+        return selectedFilter;
     }
 
     public void setSelectedFilter(int id) {
