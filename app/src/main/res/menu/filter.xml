@@ -201,4 +201,8 @@
         android:title="ZxSpectrum"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/filter39"
+        android:title="Local Contrast Enhancement HDR"
+        app:showAsAction="never" />
 </menu>

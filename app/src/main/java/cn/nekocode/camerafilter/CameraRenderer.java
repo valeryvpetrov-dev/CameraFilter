@@ -75,6 +75,7 @@ import cn.nekocode.camerafilter.filter.TripleFilter;
 import cn.nekocode.camerafilter.filter.TwoPassGaussianFilter;
 import cn.nekocode.camerafilter.filter.WaterReflectionFilter;
 import cn.nekocode.camerafilter.filter.ZxSpectrumFilter;
+import cn.nekocode.camerafilter.filter.EdgesWithBilateralFilters;
 
 /**
  * @author nekocode (nekocode.cn@gmail.com)
@@ -206,6 +207,7 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
         cameraFilterMap.append(R.id.filter36, new TwoPassGaussianFilter(context));
         cameraFilterMap.append(R.id.filter37, new ZxSpectrumFilter(context));
         cameraFilterMap.append(R.id.filter38, new BrightnessContrastSaturationFilter(context));
+        cameraFilterMap.append(R.id.filter39, new EdgesWithBilateralFilters(context));
         setSelectedFilter(selectedFilterId);
 
         // Create texture for camera preview
