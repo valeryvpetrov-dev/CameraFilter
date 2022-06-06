@@ -158,7 +158,8 @@ abstract class CameraFilter(context: Context) {
         program: Int,
         iResolution: IntArray,
         iChannels: IntArray,
-        iChannelResolutions: Array<IntArray>
+        iChannelResolutions: Array<IntArray>,
+        customSetupBlock: ((program: Int) -> Unit)? = null
     ) {
         setupShaderInputs(
             program,
@@ -166,7 +167,8 @@ abstract class CameraFilter(context: Context) {
             TEXTURE_COORD_BUF,
             iResolution,
             iChannels,
-            iChannelResolutions
+            iChannelResolutions,
+            customSetupBlock
         )
     }
 
@@ -176,7 +178,8 @@ abstract class CameraFilter(context: Context) {
         textureCoord: FloatBuffer?,
         iResolution: IntArray,
         iChannels: IntArray,
-        iChannelResolutions: Array<IntArray>
+        iChannelResolutions: Array<IntArray>,
+        customSetupBlock: ((program: Int) -> Unit)? = null
     ) {
         GLES20.glUseProgram(program)
         val iResolutionLocation = GLES20.glGetUniformLocation(program, "iResolution")
@@ -223,11 +226,6 @@ abstract class CameraFilter(context: Context) {
             iChannelResolutionLocation,
             _iChannelResolutions.size, FloatBuffer.wrap(_iChannelResolutions)
         )
-        val brightnessLocation = GLES20.glGetUniformLocation(program, "brightness")
-        val contrastLocation = GLES20.glGetUniformLocation(program, "contrast")
-        val saturationLocation = GLES20.glGetUniformLocation(program, "saturation")
-        GLES20.glUniform1f(brightnessLocation, 0.15f)
-        GLES20.glUniform1f(contrastLocation, 1.2f)
-        GLES20.glUniform1f(saturationLocation, 1.5f)
+        customSetupBlock?.invoke(program)
     }
 }
