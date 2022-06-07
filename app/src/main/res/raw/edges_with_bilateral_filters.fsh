@@ -2,12 +2,12 @@
  * Edge Detection: 834144373's https://www.shadertoy.com/view/MdGGRt
  * Bilateral Filter: https://www.shadertoy.com/view/4dfGDH
  */
+#extension GL_OES_standard_derivatives : enable
+precision highp float;
 
 #define SIGMA 10.0
 #define BSIGMA 0.1
 #define MSIZE 15
-
-#extension GL_OES_standard_derivatives : enable
 
 uniform vec3                iResolution;
 uniform sampler2D           iChannel0;

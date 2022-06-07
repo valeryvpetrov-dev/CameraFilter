@@ -203,7 +203,7 @@
 
     <item
         android:id="@+id/filter39"
-        android:title="Local Contrast Enhancement HDR"
+        android:title="Bilateral filter"
         app:showAsAction="never" />
 
     <item
