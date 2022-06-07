@@ -22,9 +22,15 @@ import cn.nekocode.camerafilter.R
 
 class BrightnessContrastSaturationFilter(context: Context) : CameraFilter(context) {
 
-    var brightness: Float = 0F
-    var contrast: Float = 0F
-    var saturation: Float = 0F
+    companion object {
+        private const val BRIGHTNESS_DEFAULT = 0.15f
+        private const val CONTRAST_DEFAULT = 1.2f
+        private const val SATURATION_DEFAULT = 1.5f
+    }
+
+    var brightness: Float = BRIGHTNESS_DEFAULT
+    var contrast: Float = CONTRAST_DEFAULT
+    var saturation: Float = SATURATION_DEFAULT
 
     private val program: Int = buildProgram(
         context, R.raw.vertext, R.raw.brightness_contrast_saturation
