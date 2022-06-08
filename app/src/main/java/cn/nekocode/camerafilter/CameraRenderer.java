@@ -25,6 +25,8 @@ import android.util.Pair;
 import android.util.SparseArray;
 import android.view.TextureView;
 
+import androidx.annotation.Nullable;
+
 import java.io.IOException;
 
 import javax.microedition.khronos.egl.EGL10;
@@ -37,6 +39,7 @@ import cn.nekocode.camerafilter.filter.AsciiArtFilter;
 import cn.nekocode.camerafilter.filter.BasicDeformFilter;
 import cn.nekocode.camerafilter.filter.BlackAndWhiteFilter;
 import cn.nekocode.camerafilter.filter.BlueorangeFilter;
+import cn.nekocode.camerafilter.filter.BrightnessContrastSaturationFilter;
 import cn.nekocode.camerafilter.filter.CameraFilter;
 import cn.nekocode.camerafilter.filter.CartoonFilter;
 import cn.nekocode.camerafilter.filter.CastingFilter;
@@ -52,6 +55,7 @@ import cn.nekocode.camerafilter.filter.HexagonMosaicFilter;
 import cn.nekocode.camerafilter.filter.JFAVoronoiFilter;
 import cn.nekocode.camerafilter.filter.LegofiedFilter;
 import cn.nekocode.camerafilter.filter.LichtensteinEsqueFilter;
+import cn.nekocode.camerafilter.filter.LongExposure;
 import cn.nekocode.camerafilter.filter.MappingFilter;
 import cn.nekocode.camerafilter.filter.MirrorFilter;
 import cn.nekocode.camerafilter.filter.MoneyFilter;
@@ -72,6 +76,7 @@ import cn.nekocode.camerafilter.filter.TripleFilter;
 import cn.nekocode.camerafilter.filter.TwoPassGaussianFilter;
 import cn.nekocode.camerafilter.filter.WaterReflectionFilter;
 import cn.nekocode.camerafilter.filter.ZxSpectrumFilter;
+import cn.nekocode.camerafilter.filter.EdgesWithBilateralFilters;
 
 /**
  * @author nekocode (nekocode.cn@gmail.com)
@@ -147,6 +152,11 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
         renderThread.start();
     }
 
+    @Nullable
+    public CameraFilter getSelectedFilter() {
+        return selectedFilter;
+    }
+
     public void setSelectedFilter(int id) {
         selectedFilterId = id;
         selectedFilter = cameraFilterMap.get(id);
@@ -197,6 +207,9 @@ public class CameraRenderer implements Runnable, TextureView.SurfaceTextureListe
         cameraFilterMap.append(R.id.filter35, new RainDropsFilter(context));
         cameraFilterMap.append(R.id.filter36, new TwoPassGaussianFilter(context));
         cameraFilterMap.append(R.id.filter37, new ZxSpectrumFilter(context));
+        cameraFilterMap.append(R.id.filter38, new BrightnessContrastSaturationFilter(context));
+        cameraFilterMap.append(R.id.filter39, new EdgesWithBilateralFilters(context));
+        cameraFilterMap.append(R.id.filter40, new LongExposure(context));
         setSelectedFilter(selectedFilterId);
 
         // Create texture for camera preview

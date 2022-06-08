@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             "Floyd-Steinberg dithering",
             "Rain Drops",
             "TwoPassGaussian",
-            "Zx spectrum"
+            "Zx spectrum", "Edges with Bilateral Filters", "Long Exposure"
     };
 
     Integer[] FILTER_RES_IDS = {R.id.filter0, R.id.filter1, R.id.filter2, R.id.filter3, R.id.filter4,
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             R.id.filter34,
             R.id.filter35,
             R.id.filter36,
-            R.id.filter37
+            R.id.filter37, R.id.filter39, R.id.filter40
     };
 
     ArrayList<Integer> mFilterArray = new ArrayList<>(Arrays.asList(FILTER_RES_IDS));
